@@ -37,12 +37,6 @@ class Portfolio
 		total_value = @allocated_stocks.sum{ |allocation| allocation[:stock].price * allocation[:units]}
 		return total_value
 	end
-
-	def sold()
-	end
-
-	def buy()
-	end
 end
 
 class Stock
