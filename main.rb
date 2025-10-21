@@ -21,7 +21,7 @@ class Portfolio
 
 	def show_stocks()
 		@allocated_stocks.each do |stock|
-			puts stock[:stock].price, stock[:units]
+			puts "Stock name: #{stock[:stock].name}, Stock price #{stock[:stock].price}, Stock units: #{stock[:units]}"
 		end
 	end
 
@@ -34,9 +34,10 @@ end
 
 class Stock
 
-	attr_reader :price
+	attr_reader :price, :name
 
-	def initialize(price)
+	def initialize(name, price)
+		@name = name
 		@price = price
 	end
 
@@ -46,11 +47,13 @@ class Stock
 
 end
 
-meta = Stock.new(100)
-apple = Stock.new(150)
+stock_1 = Stock.new("Nvidia", 1000)
+stock_2 = Stock.new("Apple", 2000)
+stock_3 = Stock.new("Meta", 3000)
 
 portfolio = Portfolio.new
+portfolio.add_stock(stock_1, 20)
+portfolio.add_stock(stock_2, 30)
+portfolio.add_stock(stock_3, 40)
 
-portfolio.add_stock(meta, 2)
-portfolio.add_stock(apple, 4)
 portfolio.show_stocks()
