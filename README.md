@@ -25,8 +25,8 @@ El objetivo es identificar **cuántas unidades de cada acción deberían comprar
 
 Se adjuntan los links de chatGPT para entender mas a fondo el problema del rebalanceo.
 
-https://chatgpt.com/share/68f8f8c4-9da8-8003-9f86-af70f9989d4d
-https://chatgpt.com/share/68f8f0e5-7ce4-8003-b1cd-13ec45eaa706
+- https://chatgpt.com/share/68f8f8c4-9da8-8003-9f86-af70f9989d4d
+- https://chatgpt.com/share/68f8f0e5-7ce4-8003-b1cd-13ec45eaa706
  
 
 
