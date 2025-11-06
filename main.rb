@@ -5,8 +5,6 @@ class Portfolio
 	end
 
 	def rebalance()
-		validate_and_normalize_allocations()
-
 		total = get_total_value()
 
 		@allocated_stocks.each do |allocation|
@@ -52,17 +50,6 @@ class Portfolio
 	def get_total_value
 		total_value = @allocated_stocks.sum{ |allocation| allocation[:stock].price * allocation[:units]}
 		return total_value
-	end
-
-	def validate_and_normalize_allocations
-		total = @target_allocation.values.sum
-		return if total == 0
-
-		if total < 1.0 or total > 1.0
-			puts "normalizing values before rebalance"
-		end
-
-		@target_allocation.transform_values! { |value| value / total }
 	end
 end
 
