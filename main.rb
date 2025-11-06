@@ -1,39 +1,24 @@
-# Construct a simple Portfolio class that has a collection of Stocks. Assume each Stock has a “Current Price” method 
-# that receives the last available price. Also, the Portfolio class has a collection of “allocated” Stocks 
-# that represents the distribution of the Stocks the Portfolio is aiming (i.e. 40% META, 60% APPL)
-# Provide a portfolio rebalance method to know which Stocks should be sold and which ones should be bought
-# to have a balanced Portfolio based on the portfolio’s allocation.
-
-# Add documentation/comments to understand your thinking process and solution
-# Important: If you use LLMs that’s ok, but you must share the conversations.
-
 class Portfolio
 	def initialize()
-		@allocated_stocks = [] # Lista con objetos {stock, unidades}
-		@target_allocation = {} # Diccionario que guarda el procentaje objetivo ej: {"stock1" => 0.3}
+		@allocated_stocks = []
+		@target_allocation = {}
 	end
 
 	def rebalance()
-		#Tratamos de normalizar cuando la suma de las distribuciones está bajo o sobre el 100%
 		validate_and_normalize_allocations()
 
-		#Obtenemos el valor total del portafolio (suma total del numero de acciones multiplicado por su precio)
 		total = get_total_value()
 
 		@allocated_stocks.each do |allocation|
-			#Tomamos el stock actual
+			
 			current_stock = allocation[:stock]
 
-			#Valor actual: precio del stock multiplicado por la cantidad de unidades del mismo
 			current_value = current_stock.price * allocation[:units]
 
-			#Porcentaje objetivo actual para la accion correspondiente
 			target_percentage = @target_allocation[current_stock.name] || 0
 
-			# Valor objetivo que se quiere alcanzar
 			target_value = total * target_percentage
 
-			#La diferencia es entre el valor objetivo a lograr y el valor actual total para la stock actual
 			difference = target_value - current_value
 
 			if difference > 0
